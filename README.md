@@ -90,4 +90,4 @@ Example:
 ## Refrence
 
 - https://portswigger.net/web-security/xxe
-- 
+- https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
