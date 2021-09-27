@@ -11,6 +11,11 @@ Attacker can view internal file's of applicatgion server and interact with back 
   DTD is declared within the optional DOCTYPE element at the start of the XML document. 
 
   DTD can be fully self-contained within the document itself (known as an "internal DTD") or can be loaded from elsewhere (known as an "external DTD") or can be hybrid of the two. 
+- ***What is XML external entities:*** a type of custom entity whose definition is located outside of the DTD.
+  
+  Declaration of an external entity uses the `SYSTEM` keyword and must specify a `URL` from which the value of the entity should be loaded
+  
+  ` <!DOCTYPE foo [ <!ENTITY ext SYSTEM "http://normal-website.com" > ]>` or `<!DOCTYPE foo [ <!ENTITY ext SYSTEM "file:///path/to/file" > ]>`
 
 ## How XXE vulnerability occur?
 
