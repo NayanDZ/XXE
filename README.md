@@ -1,4 +1,4 @@
-# XXE (XML external entity injection)
+# XXE (XML external entity) Injection
 
 XXE injection allows an attacker to interfere with processing XML data of application.
 
