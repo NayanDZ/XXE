@@ -31,7 +31,7 @@ Like XXE are a type of custom XML entity whose defined values are loaded from ou
 - External DTD
 
 
-## How to find and test XXE
+## 🧙 How to find and test XXE
 ### 1. Exploiting XXE to retrieve files
 
  To perform an XXE injection attack that retrieves an arbitrary file from the server's filesystem, you need to modify the submitted XML in two ways:
@@ -81,13 +81,13 @@ Example:
   3. [XXE attacks via modified content type](https://portswigger.net/web-security/xxe#exploiting-xxe-to-perform-ssrf-attacks)
 
 
-## Remediation of XXE
+## 🛠️ Remediation of XXE
 
 - XML parsing library supports potentially dangerous XML features that the application does not need or intend to use. The safest way to prevent XXE is always to disable DTDs (External Entities) completely. 
 -  Configure XML parser to disable external entity resolution.
 -  Disable support for XInclude
 
-## Refrence
+## 🔗 Refrence
 
 - https://portswigger.net/web-security/xxe
 - https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
