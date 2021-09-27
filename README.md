@@ -31,7 +31,7 @@ Like XXE are a type of custom XML entity whose defined values are loaded from ou
 - External DTD
 
 
-## 🧙 How to find and test XXE
+## 🔎 How to find and test XXE
 ### 1. Exploiting XXE to retrieve files
 
  To perform an XXE injection attack that retrieves an arbitrary file from the server's filesystem, you need to modify the submitted XML in two ways:
