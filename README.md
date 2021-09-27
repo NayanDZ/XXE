@@ -4,6 +4,14 @@ XXE injection allows an attacker to interfere with processing XML data of applic
 
 Attacker can view internal file's of applicatgion server and interact with back end systems.
 
+- ***XML (extensible markup language):*** designed for storing and transporting data. XML uses a tree structure of tags and data.
+- ***XML Entities*** is a way of representing an item of data within an XML document, instead of using the data itself. Various entities are built in to the specification of the XML language. For example, the entities &lt; and &gt; represent the characters < and >.
+- ***DTD (Document type definition):*** define the structure of an XML document, it can contain types of data values and other items. 
+
+  DTD is declared within the optional DOCTYPE element at the start of the XML document. 
+
+  DTD can be fully self-contained within the document itself (known as an "internal DTD") or can be loaded from elsewhere (known as an "external DTD") or can be hybrid of the two. 
+
 ## How XXE vulnerability occur?
 
 When aplications use the XML format to transmit data between the browser to server. they always using standard library or platform API to process XML data on the server.
@@ -11,3 +19,18 @@ When aplications use the XML format to transmit data between the browser to serv
 XML specification contains various potentially dangerous features, and standard parsers support these features even if they are not normally used by the application.
 
 Like XXE are a type of custom XML entity whose defined values are loaded from outside of the DTD in which they are declared. also external entities are allow an entity to be defined based on the contents of a file path or URL. 
+
+## Types of XXE
+
+## How to find and test XXE
+
+## Remediation of XXE
+
+- XML parsing library supports potentially dangerous XML features that the application does not need or intend to use. The safest way to prevent XXE is always to disable DTDs (External Entities) completely. 
+-  Configure XML parser to disable external entity resolution.
+-  Disable support for XInclude
+
+## Refrence
+
+- https://portswigger.net/web-security/xxe
+- 
