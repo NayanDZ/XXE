@@ -5,7 +5,7 @@ XXE injection allows an attacker to interfere with processing XML data of applic
 Attacker can view internal file's of applicatgion server and interact with back end systems.
 
 - ***XML (Extensible markup language):*** designed for storing and transporting data. XML uses a tree structure of tags and data.
-- ***XML Entities*** is a way of representing an item of data within an XML document, instead of using the data itself. Various entities are built in to the specification of the XML language. For example, the entities &lt; and &gt; represent the characters < and >.
+- ***XML Entities*** is a way of representing an item of data within an XML document, instead of using the data itself. Various entities are built in to the specification of the XML language. For example, the entities `&lt;` and `&gt;` represent the characters < and >.
 - ***DTD (Document type definition):*** define the structure of an XML document, it can contain types of data values and other items. 
 
   DTD is declared within the optional DOCTYPE element at the start of the XML document. 
