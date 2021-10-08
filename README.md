@@ -4,6 +4,7 @@ XXE injection is an attack technique to manipulate or compromise the logic of XM
 
 Attacker can view internal file's of applicatgion server and interact with back end systems.
 
+### Some key features of XML that relevant to understanding XXE vulnerabilities
 - ***XML (Extensible markup language):*** designed for storing and transporting data. XML uses a tree structure of tags and data.
 - ***XML Entities*** is a way of representing an item of data within an XML document, instead of using the data itself. Various entities are built in to the specification of the XML language. For example, the entities `&lt;` and `&gt;` represent the characters < and >.
 - ***DTD (Document type definition):*** define the structure of an XML document, it can contain types of data values and other items. 
