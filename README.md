@@ -1,6 +1,6 @@
 # XXE (XML external entity)❌Injection
 
-XXE injection is an attack technique to manipulate ot compromise the logic of XML application.
+XXE injection is an attack technique to manipulate or compromise the logic of XML application.
 
 Attacker can view internal file's of applicatgion server and interact with back end systems.
 
